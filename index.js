@@ -8,7 +8,7 @@ electrodeServer({}).then(server => {
     path: "/{args*}",
     handler: (req, reply) => {
       const payload = req.payload;
-      console.log("incoming request path:", req.path, "payload:", payload);
+      console.log("incoming request path:", req.path, "payload:", JSON.stringify(payload));
       const result = payload && payload.result;
       const action = result && result.action;
       switch (action) {
