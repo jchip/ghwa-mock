@@ -5,10 +5,10 @@ const electrodeServer = require("electrode-server");
 electrodeServer({}).then(server => {
   server.route({
     method: "*",
-    path: "/",
+    path: "/{args*}",
     handler: (req, reply) => {
       const payload = req.payload;
-      console.log("incoming payload", payload);
+      console.log("incoming request path:", req.path, "payload:", payload);
       const result = payload && payload.result;
       const action = result && result.action;
       switch (action) {
