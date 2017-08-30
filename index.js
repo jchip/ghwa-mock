@@ -8,6 +8,7 @@ electrodeServer({}).then(server => {
     path: "/",
     handler: (req, reply) => {
       const payload = req.payload;
+      console.log("incoming payload", payload);
       const result = payload && payload.result;
       const action = result && result.action;
       switch (action) {
